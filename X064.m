@@ -93,7 +93,7 @@ for a in [0..1] do
                         pts:=Points(H : Bound:=10);
                         print H;
                     end if;
-                    print a, b, Genus(H),pts;
+                    print a, b, c, Genus(H),pts;
                     print "++++++++++++++++++++";
                 end if;
             end if;
