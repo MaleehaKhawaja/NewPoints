@@ -1,4 +1,4 @@
-load 'timo_models_and_maps.m';
+load 'models_and_maps.m';
 load 'rank_0_auxiliary.m';
 
 print "We compute a model for X0(64) using the code given in the paper by
