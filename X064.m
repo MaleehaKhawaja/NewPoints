@@ -40,6 +40,30 @@ for a in [0..1]
     end for;
 end for;
 
+//We first show that there are no 
+//cubic points P such that the corresponding divisor 
+//has Riemann-Roch dimension 1
+
+for a in [0..1]
+    do for b in [0..3]
+        do for c in [0..3]
+            do D := 3*infdiv + a*D1 + b*D2 + c*D3;
+            L, phi := RiemannRochSpace(D);
+            dim := Dimension(L);
+            if dim eq 1 
+                then D:=D+Divisor(phi(L.1));
+		        assert IsEffective(D);
+        	    for j in [1..#Decomposition(D)] do
+            		k := ResidueClassField(Decomposition(D)[j][1]);
+                    assert Degree(k) ne 3;
+        	    end for;
+            end if;
+        end for;
+    end for;
+end for;
+
+//-----------------------------------------------------------//
+
 Qu<u>:=FunctionField(Rationals());
 Qux<w,x,y>:=ProjectiveSpace((Qu), 2);
 
