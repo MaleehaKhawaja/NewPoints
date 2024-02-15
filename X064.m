@@ -89,11 +89,14 @@ for a in [0..1] do
                             pts:=[];
                         end if;
                     else
-                        H:=HyperellipticCurve(g);
+                        H:=SimplifiedModel(MinimalWeierstrassModel(HyperellipticCurve(g)));
                         pts:=Points(H : Bound:=10);
                         print H;
                     end if;
                     print a, b, c, Genus(H),pts;
+                    print "++++++++++++++++++++";
+                    assert IsLocallySoluble(H, 3) eq false;
+                    print "There are no Q3-points on the hyperelliptic curve, and thus no rational points."; 
                     print "++++++++++++++++++++";
                 end if;
             end if;
